@@ -1,4 +1,5 @@
-const simpArr_Num = (dataArr, paramsObj) => {
+;
+export const simpArr_Num = (dataArr, paramsObj) => {
     // copy source data
     let resultData = [...dataArr];
     // [{"a":"aa"}, {"b":"bb"}, …… ……]
@@ -12,8 +13,8 @@ const simpArr_Num = (dataArr, paramsObj) => {
 
     // get max || min    
     // only element is a number or string number  || [1 ,'1']
-    let hasMax = paramsObj ? paramsObj["getMax"] : null
-    let hasMin = paramsObj ? paramsObj["getMin"] : null
+    let hasMax = paramsObj && paramsObj["getMax"] ? paramsObj["getMax"] : null
+    let hasMin = paramsObj && paramsObj["getMin"] ? paramsObj["getMin"] : null
     let maxVal, minVal;
     // delete [null,undefined,NaN,'']
     resultData = resultData.filter(x => !!x == true || x == 0);

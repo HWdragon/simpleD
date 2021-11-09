@@ -1,5 +1,5 @@
 ;
-const simpArr_Str = (dataArr, paramsObj) => {
+export const simpArr_Str = (dataArr, paramsObj) => {
     // copy source data
     let resultData = [...dataArr];
     // [{"a":"aa"}, {"b":"bb"}, …… ……]
@@ -17,7 +17,7 @@ const simpArr_Str = (dataArr, paramsObj) => {
     // 3.indexOf no-repeat --- 71ms
     // es6.7 newSet() no-repeat --- 6ms
     // tag：https://blog.csdn.net/weixin_30342209/article/details/99208791?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_baidulandingword~default-0.no_search_link&spm=1001.2101.3001.4242.1
-    let hasRepeat = paramsObj ? paramsObj["repeat"] : null
+    let hasRepeat = paramsObj && paramsObj["repeat"] ? paramsObj["repeat"] : null
     let repeatHash = {}, repeatData = [];
     if(hasRepeat && (isStringItem || isNumberItem)) {
         resultData.forEach(item => {
@@ -29,7 +29,7 @@ const simpArr_Str = (dataArr, paramsObj) => {
     }
 
     // number of times to get the same element
-    let hasSame = paramsObj ? paramsObj["same"] : null
+    let hasSame = paramsObj && paramsObj["same"] ? paramsObj["same"] : null
     let sameObj = {};
     if(hasSame && (isStringItem || isNumberItem)) {
         sameObj = resultData.reduce((obj, cur) => {
