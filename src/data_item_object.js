@@ -1,4 +1,8 @@
-import { keysJoin } from "./utils";
+import { 
+    keysJoin,
+    sortBy1,
+    sortBy2 
+} from "./utils";
 
 export const simpArr_Obj = (dataArr, paramsObj) => {
     // copy source data
@@ -24,19 +28,33 @@ export const simpArr_Obj = (dataArr, paramsObj) => {
     // result : { filterKey1: [{……}，{……}] }
     let hasFilterObj = paramsObj && paramsObj["filterObj"] ? paramsObj["filterObj"] : []
     let filterObjKeys = Object.keys(hasFilterObj);
-    let filterResult = {};
+    let filterResult = {
+        // selected index
+        filterIndex: []
+    };
     filterObjKeys.forEach(item => {
         filterResult[item] = []
     })
     if(hasFilterObj) { 
-        resultData.forEach(cur => {
+        resultData.forEach((cur, index) => {
             filterObjKeys.forEach(item => {
                 if((item in cur) && (hasFilterObj[item] == cur[item])) {
-                    filterResult[item].push(cur)
+                    filterResult[item].push(cur);
+                    filterResult["filterIndex"].push(index)
                 }
             })
         })
     }  
+
+    // sort key
+    let hasSort = paramsObj && paramsObj["sortKey"] ? paramsObj["sortKey"] : []
+    let sortLen = hasSort.length;
+    let sortResult= [];
+    if(sortLen == 1) {
+        sortResult = resultData.sort(sortBy1(hasSort[0]))
+    }else if(sortLen == 2) {
+        sortResult = resultData.sort(sortBy2(hasSort[0], hasSort[1]))
+    }
     
     // no-repeat 
     let hasRepeatKeys = paramsObj && paramsObj["repeatKeys"] ? paramsObj["repeatKeys"] : null
@@ -81,13 +99,11 @@ export const simpArr_Obj = (dataArr, paramsObj) => {
         })
     }
 
-    // sort key
-
-
     return {
         resultData: resultData,
         filterResult: filterResult,
         repeatKeysResult: repeatKeysResult,
+        sortResult: sortResult,
         maxObj: maxObj,
         minObj: minObj
     }

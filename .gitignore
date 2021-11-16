@@ -1,14 +1,17 @@
+.DS_Store
+
 # dependencies
 **/node_modules
 
 # production
 /dist
 /.vscode
-build
+/build
 
-# misc
-.DS_Store
+# Log files
 npm-debug.log*
-yarn-error.log
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
 
 .vscode

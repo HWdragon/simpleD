@@ -1,13 +1,18 @@
 {
-  "name": "simple_d",
+  "name": "simple-d",
   "version": "1.0.0",
-  "description": "data\\",
+  "description": "data processing",
+  "private": false,
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
     "start": "webpack-dev-server --open"
   },
+  "keywords":[
+    "data",
+    "simple"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/HWdragon/simpleD.git"

@@ -11,7 +11,8 @@ let a = [
     {"a":"aa", "b": "bb", "c": "cc", "d": "dd", num: 100, num1: 2},
     {"a":"a112", "b": "b11", "c": "c00", "d": "dkc",  e: "test", f: "test1",num: -100, num1: 1},
     {"a":"aa", "b": "bb", "c": "000", "d00": "7800",  e: "e", f: "0f0",num: -10, num1: 10},
-    {"a":"aa", "b": "bb", "c": "asd", "d": "dd",  e: "eyt", f: "0f0",num: -17, num1: 11}
+    {"a":"aa", "b": "bb", "c": "asd", "d": "dd",  e: "eyt", f: "0f0",num: -17, num1: 11},
+    {"a":"f", "b": "u", "c": "c", "d": "k",  e: "!", f: "!!",num: 5, num1: 5}
 ];
 let b = [2,"ad", undefined,null,"2", 2, 4, 5, "e12", 1, 3, 3, 2, "sdf", "12",null, undefined,"fuck", "fuckup", "sdf"]
 let b_1 = [100,"qwe", "as","sd",-911, 2, "12ds","sd","fd","ds","as","sd","dx1","100t","50g","128g","256g","100t","100","1001","1022"]
@@ -37,6 +38,7 @@ export const TestDemo = () => {
         // key:true, 
         // max:["num"], 
         // min:["num"], 
+        sortKey:["num", "num1"],
         filterObj: {
             e: "test",
             f: "0f0"
