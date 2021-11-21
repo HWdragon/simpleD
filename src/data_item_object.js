@@ -73,8 +73,8 @@ export const simpArr_Obj = (dataArr, paramsObj) => {
     }
 
     // get max min
-    let hasMax = paramsObj && paramsObj["max"] ? paramsObj["max"] : []
-    let hasMin = paramsObj && paramsObj["min"] ? paramsObj["min"] : []
+    let hasMax = paramsObj && paramsObj["max"] ? paramsObj["max"] :[]
+    let hasMin = paramsObj && paramsObj["min"] ? paramsObj["min"] :[]
     let maxObj = {}, minObj={};
     if(hasMax.length > 0 && isObjItem) {
         hasMax.forEach(item => {
@@ -87,6 +87,7 @@ export const simpArr_Obj = (dataArr, paramsObj) => {
             })
         })
     }
+
     if(hasMin.length > 0 && isObjItem) {
         hasMin.forEach(item => {
             minObj[item] = resultData.reduce((prev, next) => {
@@ -107,4 +108,5 @@ export const simpArr_Obj = (dataArr, paramsObj) => {
         maxObj: maxObj,
         minObj: minObj
     }
+
 } 

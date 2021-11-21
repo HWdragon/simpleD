@@ -1,12 +1,15 @@
 
 import React from "react";
-import { simpArr_arr } from "../data_item_array";
-import { simpArr_Num } from "../data_item_number";
-import { simpArr_Obj } from "../data_item_object";
-import { simpArr_Str } from "../data_item_string";
+// import { simpArr_arr } from "../data_item_array";
+// import { simpArr_Num } from "../data_item_number";
+// import { simpArr_Obj } from "../data_item_object";
+// import { simpArr_Str } from "../data_item_string";
+
+import { simpArr_Obj } from "../index"
+// import { simpArr_Obj } from "../../build/build.js"
 
 let a = [
-    {"a":"aaaa", "b": "bbbbbbb", "c": "cccccccccccc", "d": "dddddddddd", e: "test", num: 12, num1: -45},
+    {"a":"aaaa", "b": "bbbbbbb", "c": "cccccccccccc", "d": "dddddddddd", e: "test", f: "1ee", num: 12, num1: -45},
     {"a":"wer", "b": "11313", "c": "s3fdd", "d": "041", e: "e", f: "f",num: 3, num1: -60},
     {"a":"aa", "b": "bb", "c": "cc", "d": "dd", num: 100, num1: 2},
     {"a":"a112", "b": "b11", "c": "c00", "d": "dkc",  e: "test", f: "test1",num: -100, num1: 1},
@@ -35,9 +38,9 @@ let c = [
 export const TestDemo = () => {
 
     var maxMin = simpArr_Obj(a,{
-        // key:true, 
-        // max:["num"], 
-        // min:["num"], 
+        key:true, 
+        max:["num"], 
+        min:["num"], 
         sortKey:["num", "num1"],
         filterObj: {
             e: "test",

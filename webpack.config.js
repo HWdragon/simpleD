@@ -13,7 +13,7 @@ module.exports = {
         filename: "build.js",
         // 输出路径
         // __dirname 是nodejs的变量，代表当前文件的目录绝对路径
-        path: path.join(__dirname, "build"),
+        path: resolve(__dirname, "build"),
         // 该属性的目的是在url前加上一个 build/ 路径
         // publicPath: "build/"   
     },

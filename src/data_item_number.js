@@ -4,7 +4,7 @@ export const simpArr_Num = (dataArr, paramsObj) => {
     let resultData = [...dataArr];
     // [{"a":"aa"}, {"b":"bb"}, …… ……]
     let isObjItem = Object.prototype.toString.call(dataArr[0]) == "[object Object]";
-    // ["11","22", …… ……]
+    // ["11","22", …… ……]  
     let isStringItem = Object.prototype.toString.call(dataArr[0]) == "[object String]";
     // [11,22, …… ……]
     let isNumberItem = Object.prototype.toString.call(dataArr[0]) == "[object Number]";
@@ -34,4 +34,5 @@ export const simpArr_Num = (dataArr, paramsObj) => {
         maxVal: maxVal,
         minVal: minVal
     }
+    
 }

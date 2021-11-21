@@ -1,15 +1,15 @@
 {
   "name": "simple-d",
-  "version": "1.0.0",
+  "version": "1.0.17",
   "description": "data processing",
   "private": false,
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
     "start": "webpack-dev-server --open"
   },
-  "keywords":[
+  "keywords": [
     "data",
     "simple"
   ],
@@ -45,5 +45,6 @@
     "webpack": "^5.61.0",
     "webpack-cli": "^4.9.1",
     "webpack-dev-server": "^4.4.0"
-  }
+  },
+  "dependencies": {}
 }
