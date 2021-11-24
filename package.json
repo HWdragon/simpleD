@@ -1,6 +1,6 @@
 {
   "name": "simple-d",
-  "version": "1.0.17",
+  "version": "1.0.20",
   "description": "data processing",
   "private": false,
   "main": "src/index.js",
@@ -38,6 +38,7 @@
     "html-webpack-plugin": "^5.5.0",
     "less": "^4.1.2",
     "less-loader": "^10.2.0",
+    "moment": "^2.29.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "style-loader": "^3.3.1",

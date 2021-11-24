@@ -51,8 +51,8 @@ export const TestDemo = () => {
     // const { spliceItem, spliceObjItem } = setArray;
     // var maxMin = spliceItem(33, 4)
 
-    const setBroad = new SetBroad();
-    const {sortObjItem, subscribeMes, resSort:{active, other, result}} = setBroad;
+    // const setBroad = new SetBroad();
+    const {sortObjItem, subscribeMes, resSort: {active, other, result}} = SetBroad();
     var maxMin = sortObjItem(c, "status")
     
     console.log("active=======", active)
@@ -68,16 +68,15 @@ export const TestDemo = () => {
         var a = subscribeMes(msg, "status", "name")
         console.log(a)
     }, 1000)
-
     setTimeout(() => {
         var a = subscribeMes(msg1, "status", "name")
         console.log(a)
     }, 2000)
-
     setTimeout(() => {
         var a = subscribeMes(msg2, "status", "name")
         console.log(a)
-    }, 4000)
+    }, 3500)
+
     return <div> 
                 <span>人生充满无奈 what fuck up!!!67</span> 
                 <div className="img1"></div>
