@@ -1,11 +1,7 @@
 
 import React from "react";
-// import { simpArr_arr } from "../data_item_array";
-// import { simpArr_Num } from "../data_item_number";
-// import { simpArr_Obj } from "../data_item_object";
-// import { simpArr_Str } from "../data_item_string";
-
-import { simpArr_Obj } from "../index"
+import { simpArr_Obj, SetArray, SetBroad } from "../index";
+// import { setArray } from "../set_array";
 // import { simpArr_Obj } from "../../build/build.js"
 
 let a = [
@@ -22,10 +18,11 @@ let b_1 = [100,"qwe", "as","sd",-911, 2, "12ds","sd","fd","ds","as","sd","dx1","
 let b_2 = [12,343,44,33,-132,0,-1,31,3,4,65,-9,0,3,11,1,2]
 let b_3 = ['12', '3430', '44', 33, '-132', 0, -1, 31, 3, '4', 65, -9, 0, '3', 11, '1', '2', 0, undefined, false, null,NaN,'']
 let c = [
-    {name:"dragon", win:3, lose:2},
-    {name:"jack", win:3.5, lose:1},
-    {name:"ben", win:1, lose:1.5},
-    {name:"skip", win:4, lose:0.5}
+    {name:"dragon", win:3, lose:2, status: false},
+    {name:"jack", win:3.5, lose:1, status: false},
+    {name:"ben", win:1, lose:1.5, status: true},
+    {name:"skip", win:4, lose:0.5, status: false},
+    {name:"bobi", win:1.1, lose:1.6, status: true}
 ]
        
 // var maxMin = simpArr_Obj(b,{key:true, max:["num"], min:["num"], repeat:true});
@@ -37,21 +34,50 @@ let c = [
 
 export const TestDemo = () => {
 
-    var maxMin = simpArr_Obj(a,{
-        key:true, 
-        max:["num"], 
-        min:["num"], 
-        sortKey:["num", "num1"],
-        filterObj: {
-            e: "test",
-            f: "0f0"
-        }, 
-        repeatKeys: ["a", "b","f"],
-        sort: "win"
-    });
+    // var maxMin = simpArr_Obj(a,{
+    //     key:true, 
+    //     max:["num"], 
+    //     min:["num"], 
+    //     sortKey:["num", "num1"],
+    //     filterObj: {
+    //         e: "test",
+    //         f: "0f0"
+    //     }, 
+    //     repeatKeys: ["a", "b","f"],
+    //     sort: "win"
+    // });
 
+    // const setArray = new SetArray();
+    // const { spliceItem, spliceObjItem } = setArray;
+    // var maxMin = spliceItem(33, 4)
+
+    const setBroad = new SetBroad();
+    const {sortObjItem, subscribeMes, resSort:{active, other, result}} = setBroad;
+    var maxMin = sortObjItem(c, "status")
+    
+    console.log("active=======", active)
+    console.log("other=======", other)
+    console.log("result=======", result)
     console.log("maxmin=======", maxMin)
 
+    var msg = {name:"jack", status: true}
+    var msg1 = {name:"skip", status: true}
+    var msg2 = {name:"ben", status: false}
+
+    setTimeout(() => {
+        var a = subscribeMes(msg, "status", "name")
+        console.log(a)
+    }, 1000)
+
+    setTimeout(() => {
+        var a = subscribeMes(msg1, "status", "name")
+        console.log(a)
+    }, 2000)
+
+    setTimeout(() => {
+        var a = subscribeMes(msg2, "status", "name")
+        console.log(a)
+    }, 4000)
     return <div> 
                 <span>人生充满无奈 what fuck up!!!67</span> 
                 <div className="img1"></div>

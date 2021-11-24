@@ -1,11 +1,12 @@
-export const setArray = {
-    resDataSplice: [],
-    resObjDataSplice: [],
+export class SetArray {
+    resDataSplice = [];
+    resObjDataSplice = [];
+   
     // data：add new item
     // num： Maximum length
-    // pay one's respects to my once leader, ‘memo’
-    spliceItem: (data, num) => {
-        resDataSplice = resDataSplice.reduce((pre, cur) => {
+    // pay one's respects to my once leader, memo
+    spliceItem = (data, num) => {
+        this.resDataSplice = this.resDataSplice.reduce((pre, cur) => {
             if(data != cur) {
                return pre.concat(cur) 
             }else {
@@ -13,18 +14,18 @@ export const setArray = {
             }
         }, [])
 
-        let len = resDataSplice.length;
+        let len = this.resDataSplice.length;
         if(len < num) {
-            resDataSplice.unshift(data);
+            this.resDataSplice.unshift(data);
         }else {
-            resDataSplice.splice(len-1, 1)
-            resDataSplice.unshift(data);
+            this.resDataSplice.splice(len-1, 1)
+            this.resDataSplice.unshift(data);
         }
         
-        return resDataSplice;
-    },
-    spliceObjItem: (obj, key, num) => {
-        resObjDataSplice = resObjDataSplice.reduce((pre, cur) => {
+        return this.resDataSplice;
+    };
+    spliceObjItem = (obj, key, num) => {
+        this.resObjDataSplice = this.resObjDataSplice.reduce((pre, cur) => {
             if(obj[key] != cur[key]) {
                 return pre.concat(cur)
             }else {
@@ -32,14 +33,14 @@ export const setArray = {
             }   
         }, [])
 
-        let len = resObjDataSplice.length;
+        let len = this.resObjDataSplice.length;
         if(len < num) {
-            resObjDataSplice.unshift(obj);
+            this.resObjDataSplice.unshift(obj);
         }else {
-            resObjDataSplice.splice(len-1, 1)
-            resObjDataSplice.unshift(obj);
+            this.resObjDataSplice.splice(len-1, 1)
+            this.resObjDataSplice.unshift(obj);
         }
 
-        return resObjDataSplice
+        return this.resObjDataSplice
     }
 }
