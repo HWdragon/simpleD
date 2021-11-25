@@ -1,8 +1,6 @@
 
 import React from "react";
 import { simpArr_Obj, SetArray, SetBroad } from "../index";
-// import { setArray } from "../set_array";
-// import { simpArr_Obj } from "../../build/build.js"
 
 let a = [
     {"a":"aaaa", "b": "bbbbbbb", "c": "cccccccccccc", "d": "dddddddddd", e: "test", f: "1ee", num: 12, num1: -45},
@@ -47,35 +45,35 @@ export const TestDemo = () => {
     //     sort: "win"
     // });
 
-    // const setArray = new SetArray();
+    const setArray = new SetArray();
     // const { spliceItem, spliceObjItem } = setArray;
-    // var maxMin = spliceItem(33, 4)
+    var maxMin = setArray.spliceItem(33, 4)
 
     // const setBroad = new SetBroad();
-    const {sortObjItem, subscribeMes, resSort: {active, other, result}} = SetBroad();
-    var maxMin = sortObjItem(c, "status")
+    // const {sortObjItem, subscribeMes, resSort: {active, other, result}} = SetBroad();
+    // var maxMin = setBroad.sortObjItem(c, "status")
     
-    console.log("active=======", active)
-    console.log("other=======", other)
-    console.log("result=======", result)
+    // console.log("active=======", active)
+    // console.log("other=======", other)
+    // // console.log("result=======", result)
     console.log("maxmin=======", maxMin)
 
-    var msg = {name:"jack", status: true}
-    var msg1 = {name:"skip", status: true}
-    var msg2 = {name:"ben", status: false}
+    // var msg = {name:"jack", status: true}
+    // var msg1 = {name:"skip", status: true}
+    // var msg2 = {name:"ben", status: false}
 
-    setTimeout(() => {
-        var a = subscribeMes(msg, "status", "name")
-        console.log(a)
-    }, 1000)
-    setTimeout(() => {
-        var a = subscribeMes(msg1, "status", "name")
-        console.log(a)
-    }, 2000)
-    setTimeout(() => {
-        var a = subscribeMes(msg2, "status", "name")
-        console.log(a)
-    }, 3500)
+    // setTimeout(() => {
+    //     var a = setBroad.subscribeMes(msg, "status", "name")
+    //     console.log(a)
+    // }, 1000)
+    // setTimeout(() => {
+    //     var a = setBroad.subscribeMes(msg1, "status", "name")
+    //     console.log(a)
+    // }, 2000)
+    // setTimeout(() => {
+    //     var a = setBroad.subscribeMes(msg2, "status", "name")
+    //     console.log(a)
+    // }, 3500)
 
     return <div> 
                 <span>人生充满无奈 what fuck up!!!67</span> 
