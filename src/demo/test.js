@@ -1,11 +1,12 @@
 
 import React from "react";
-import { simpArr_Obj, SetArray, SetBroad } from "../index";
+import { simpArr_Obj, simpArr_Str, SetArray, SetBroad } from "../index";
 
 let a = [
     {"a":"aaaa", "b": "bbbbbbb", "c": "cccccccccccc", "d": "dddddddddd", e: "test", f: "1ee", num: 12, num1: -45},
     {"a":"wer", "b": "11313", "c": "s3fdd", "d": "041", e: "e", f: "f",num: 3, num1: -60},
     {"a":"aa", "b": "bb", "c": "cc", "d": "dd", num: 100, num1: 2},
+    {"a":"aa1", "b1": "bb1", "c1": "cc1", "d1": "dd1", num: 100, num1: 21},
     {"a":"a112", "b": "b11", "c": "c00", "d": "dkc",  e: "test", f: "test1",num: -100, num1: 1},
     {"a":"aa", "b": "bb", "c": "000", "d00": "7800",  e: "e", f: "0f0",num: -10, num1: 10},
     {"a":"aa", "b": "bb", "c": "asd", "d": "dd",  e: "eyt", f: "0f0",num: -17, num1: 11},
@@ -25,29 +26,29 @@ let c = [
        
 // var maxMin = simpArr_Obj(b,{key:true, max:["num"], min:["num"], repeat:true});
 // var maxMin = simpArr_Obj(a,{key:true, max: ["num"], min: ["num1"], repeat: true});
-// var maxMin = simpArr_Str(b,{key:true, max:["num"], min:["num"], repeat:true});
+// var maxMin = simpArr_Str(b,{key:true, same: true, repeat:true});
 // var maxMin = simpArr_Str(b_1,{key:true, same: ["100t", "sd","as", "100"], max:["num"], min:["num"], repeat:true});
 // var maxMin = simpArr_Num(b_3,{key:true, same:true,  repeat:true,getMax: true, getMin: true});
 
 
 export const TestDemo = () => {
 
-    // var maxMin = simpArr_Obj(a,{
-    //     key:true, 
-    //     max:["num"], 
-    //     min:["num"], 
-    //     sortKey:["num", "num1"],
-    //     filterObj: {
-    //         e: "test",
-    //         f: "0f0"
-    //     }, 
-    //     repeatKeys: ["a", "b","f"],
-    //     sort: "win"
-    // });
+    var maxMin = simpArr_Obj(a,{
+        key:true, 
+        max:["num"], 
+        min:["num"], 
+        sortKey:["num", "num1"],
+        filterObj: {
+            e: "test",
+            f: "0f0"
+        }, 
+        repeatKeys: ["a", "b"],
+        sort: "win"
+    });
 
-    const setArray = new SetArray();
+    // const setArray = new SetArray();
     // const { spliceItem, spliceObjItem } = setArray;
-    var maxMin = setArray.spliceItem(33, 4)
+    // var maxMin = setArray.spliceItem(33, 4)
 
     // const setBroad = new SetBroad();
     // const {sortObjItem, subscribeMes, resSort: {active, other, result}} = SetBroad();
@@ -56,6 +57,7 @@ export const TestDemo = () => {
     // console.log("active=======", active)
     // console.log("other=======", other)
     // // console.log("result=======", result)
+    // var maxMin = simpArr_Str(b_1,{same: true, repeat:true});
     console.log("maxmin=======", maxMin)
 
     // var msg = {name:"jack", status: true}

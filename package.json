@@ -1,6 +1,6 @@
 {
   "name": "simple-d",
-  "version": "1.0.20",
+  "version": "1.0.22",
   "description": "data processing",
   "private": false,
   "main": "src/index.js",

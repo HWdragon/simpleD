@@ -3,3 +3,5 @@
 *.yml
 node_modules/
 test/
+images/
+demo/
