@@ -78,3 +78,40 @@ simpArr_Obj(a, {
     min:["num"] 
 })
 ```
+
+##  SetArray()
+不断往数组里unshift最新的元素，并且不能有重复的，不能超过设定长度
+
+setArray.spliceItem(33, 4)：预想阵列`length为4`，传入第一个数为`33`,后续继续调用方法传入，每次传入unshift到阵列的`第0个`,如果下次传入的值在之前的阵列里存在，就把之前那个旧值删掉，新值依旧`unshift在第0个`,之后查看最新的阵列是否大于`length为4`,如果大于则切掉后面多余的
+
+setArray.spliceItem(obj, key, length)：预想阵列长度`length`，`obj`为预想插入的itemObj, `key`为预想用来判断的[key]:[value]
+
+```bash
+const setArray = new SetArray();
+
+const { spliceItem, spliceObjItem } = setArray;
+```
+
+## SetBroad()
+广播效果，排序，以及类似主播开和关的`socket`推送
+
+sortObjItem(c, "status"): 上面定义的`c`数组，以"status"为`key`排序，筛选出`true或false`的值
+
+subscribeMes(msg, "status", "name"): 接收一条`msgObj`, 通过"status", "name"为`key`的对应的值，来改变原数组对应`name`的`status`值，类似于主播`开播和关播`的推送状态到前端
+
+```bash
+const setBroad = new SetBroad();
+
+const {sortObjItem, subscribeMes, resSort: {active, other, result}} = SetBroad();
+```
+var msg = {name:"jack", status: true}
+var msg1 = {name:"skip", status: true}
+var msg2 = {name:"ben", status: false}
+
+```bash
+sortObjItem(c, "status") 需要先`sort`一遍
+
+setBroad.subscribeMes(msg, "status", "name")
+setBroad.subscribeMes(msg1, "status", "name")
+setBroad.subscribeMes(msg2, "status", "name")
+```

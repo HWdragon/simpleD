@@ -33,49 +33,53 @@ let c = [
 
 export const TestDemo = () => {
 
-    var maxMin = simpArr_Obj(a,{
-        key:true, 
-        max:["num"], 
-        min:["num"], 
-        sortKey:["num", "num1"],
-        filterObj: {
-            e: "test",
-            f: "0f0"
-        }, 
-        repeatKeys: ["a", "b"],
-        sort: "win"
-    });
+    // var maxMin = simpArr_Obj(a,{
+    //     key:true, 
+    //     max:["num"], 
+    //     min:["num"], 
+    //     sortKey:["num", "num1"],
+    //     filterObj: {
+    //         e: "test",
+    //         f: "0f0"
+    //     }, 
+    //     repeatKeys: ["a", "b"],
+    //     sort: "win"
+    // });
 
     // const setArray = new SetArray();
     // const { spliceItem, spliceObjItem } = setArray;
     // var maxMin = setArray.spliceItem(33, 4)
+    // var maxMin = setArray.spliceItem(309, 4)
+    // var maxMin = setArray.spliceItem(90, 4)
+    // var maxMin = setArray.spliceItem(44, 4)
+    // var maxMin = setArray.spliceItem(90, 4)
 
-    // const setBroad = new SetBroad();
-    // const {sortObjItem, subscribeMes, resSort: {active, other, result}} = SetBroad();
+    const setBroad = new SetBroad();
+    const {sortObjItem, subscribeMes, resSort: {active, other, result}} = SetBroad();
     // var maxMin = setBroad.sortObjItem(c, "status")
     
     // console.log("active=======", active)
     // console.log("other=======", other)
     // // console.log("result=======", result)
     // var maxMin = simpArr_Str(b_1,{same: true, repeat:true});
-    console.log("maxmin=======", maxMin)
+    // console.log("maxmin=======", maxMin)
 
-    // var msg = {name:"jack", status: true}
-    // var msg1 = {name:"skip", status: true}
-    // var msg2 = {name:"ben", status: false}
+    var msg = {name:"jack", status: true}
+    var msg1 = {name:"skip", status: true}
+    var msg2 = {name:"ben", status: false}
 
-    // setTimeout(() => {
-    //     var a = setBroad.subscribeMes(msg, "status", "name")
-    //     console.log(a)
-    // }, 1000)
-    // setTimeout(() => {
-    //     var a = setBroad.subscribeMes(msg1, "status", "name")
-    //     console.log(a)
-    // }, 2000)
-    // setTimeout(() => {
-    //     var a = setBroad.subscribeMes(msg2, "status", "name")
-    //     console.log(a)
-    // }, 3500)
+    setTimeout(() => {
+        var a = setBroad.subscribeMes(msg, "status", "name")
+        console.log(a)
+    }, 1000)
+    setTimeout(() => {
+        var a = setBroad.subscribeMes(msg1, "status", "name")
+        console.log(a)
+    }, 2000)
+    setTimeout(() => {
+        var a = setBroad.subscribeMes(msg2, "status", "name")
+        console.log(a)
+    }, 3500)
 
     return <div> 
                 <span>人生充满无奈 what fuck up!!!67</span> 
