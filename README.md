@@ -62,6 +62,8 @@ filterObj: {[key]:[value]} 筛选得到，对应所出现的item阵列：{e: [{�
 
 sortKey:[arg1, arg2]  排序默认取`arg1的值`排序，相同值的话则取`arg2的值`排序
 
+direction: "asc" | "desc" 排序字段是升序还是降序，一定要`配合sortKey`使用, 因为要匹配 sortKey:[] 里的`key`
+
 repeatKeys: ["a", "b","f"]  以repeatKeys里的元素为key取得每条item对应key的`value`值，拼接在一起，查看是否有相同的 repeatKeysResult["res"]为最终不重复的集合，repeatKeysResult["repeat"]为筛选出重复的item
 
 max:["num"]: 得到数组里[num]对应key的最大值的那条item
@@ -73,6 +75,7 @@ simpArr_Obj(a, {
     key:true, 
     filterObj:{e: "test",f: "0f0"}, 
     sortKey:["num", "num1"],
+    direction: "asc",   //升序和降序 Ascending Descending
     repeatKeys: ["a", "b","f"],
     max:["num"], 
     min:["num"] 
@@ -105,7 +108,9 @@ const setBroad = new SetBroad();
 const {sortObjItem, subscribeMes, resSort: {active, other, result}} = SetBroad();
 ```
 var msg = {name:"jack", status: true}
+
 var msg1 = {name:"skip", status: true}
+
 var msg2 = {name:"ben", status: false}
 
 ```bash

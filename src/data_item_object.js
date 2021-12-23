@@ -47,13 +47,14 @@ export const simpArr_Obj = (dataArr, paramsObj) => {
     }  
 
     // sort key
-    let hasSort = paramsObj && paramsObj["sortKey"] ? paramsObj["sortKey"] : []
+    let hasSort = paramsObj && paramsObj["sortKey"] ? paramsObj["sortKey"] : [] ;
+    let desc = paramsObj && paramsObj["direction"] ? paramsObj["direction"] : "asc" ;
     let sortLen = hasSort.length;
     let sortResult= [];
     if(sortLen == 1) {
-        sortResult = resultData.sort(sortBy1(hasSort[0]))
+        sortResult = resultData.sort(sortBy1(hasSort[0], desc))
     }else if(sortLen == 2) {
-        sortResult = resultData.sort(sortBy2(hasSort[0], hasSort[1]))
+        sortResult = resultData.sort(sortBy2(hasSort[0], hasSort[1], desc))
     }
     
     // no-repeat 
