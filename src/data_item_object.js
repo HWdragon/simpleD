@@ -88,7 +88,6 @@ export const simpArr_Obj = (dataArr, paramsObj) => {
             })
         })
     }
-
     if(hasMin.length > 0 && isObjItem) {
         hasMin.forEach(item => {
             minObj[item] = resultData.reduce((prev, next) => {
@@ -101,13 +100,52 @@ export const simpArr_Obj = (dataArr, paramsObj) => {
         })
     }
 
+    // get [key]:[value] forEach  {A: [1,3,4,5,6]}
+    let hasKeyVlaue = paramsObj && paramsObj["keyVlaue"] ? paramsObj["keyVlaue"] : null
+    let keyVlaueObj = {};
+    let keyArea, keyTarget, keyChild, keyChildLen;
+    if(hasKeyVlaue && hasKeyVlaue["key"] && hasKeyVlaue["value"] && hasKeyVlaue["child"] && isObjItem) {
+        keyArea = hasKeyVlaue["key"];  
+        keyTarget = hasKeyVlaue["value"]; 
+        keyChild = hasKeyVlaue["child"];
+        keyChildLen = hasKeyVlaue["child"].length;
+
+        if(keyChildLen > 2) {
+            console.group("child lenght maximum 2")
+            return;
+        }
+
+        resultData.forEach(item => {
+            keyVlaueObj[item[keyArea]] = [];
+        }) 
+        // keyVlaue[child] maximum length = 2 
+        resultData.forEach(item => {
+            if(
+                keyChildLen == 2 && 
+                item.hasOwnProperty(keyChild[0]) && 
+                item[keyChild[0]][0].hasOwnProperty(keyChild[1])
+            ) {
+                item[keyChild[0]].forEach(c1 => {
+                    c1[keyChild[1]].forEach(c2 => {
+                        keyVlaueObj[item[keyArea]].push(c2[keyTarget])
+                    })
+                })
+            }else if(keyChildLen == 1) {
+                item[keyChild[0]].forEach(c1 => {
+                    keyVlaueObj[item[keyArea]].push(c1[keyTarget])
+                })
+            }
+        })      
+    }
+
     return {
         resultData: resultData,
         filterResult: filterResult,
         repeatKeysResult: repeatKeysResult,
         sortResult: sortResult,
         maxObj: maxObj,
-        minObj: minObj
+        minObj: minObj,
+        keyVlaueObj: keyVlaueObj
     }
 
 } 

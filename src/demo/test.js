@@ -23,6 +23,31 @@ let c = [
     {name:"skip", win:4, lose:0.5, status: false},
     {name:"bobi", win:1.1, lose:1.6, status: true}
 ]
+let d = [
+    // {
+    //     title: "dragon", num: 440, children: [{money: "25000", time: 12},{money: "25000", time: 13},{money: "25000", time: 6}]
+    // },
+    // {
+    //     title: "jack", num: 227, children: [{money: "35000", time: 48},{money: "25000", time: 24},{money: "25000", time: 36}]
+    // },
+    // {
+    //     title: "ben", num: 428, children: [{money: "30000", time: 31},{money: "30000", time: 22},{money: "25000", time: 100000}]
+    // },
+    {
+        title: "skip", num: 428, children: [
+            {base: "2019", angele: true, child: [
+                {time: 324}, {time: 100}, {time: 475}
+            ]}
+        ]
+    },
+    {
+        title: "duck", num: 338, children: [
+            {base: "2017", angele: true, child: [
+                {time: 3424}, {time: 70}, {time: 71}
+            ]}
+        ]
+    }
+]
        
 // var maxMin = simpArr_Obj(b,{key:true, max:["num"], min:["num"], repeat:true});
 // var maxMin = simpArr_Obj(a,{key:true, max: ["num"], min: ["num1"], repeat: true});
@@ -33,19 +58,26 @@ let c = [
 
 export const TestDemo = () => {
 
-    var maxMin = simpArr_Obj(a,{
-        key:true, 
-        max:["num"], 
-        min:["num"], 
-        sortKey:["num", "num1"],
-        direction: "asc",   //升序和降序 Ascending Descending
-        filterObj: {
-            e: "test",
-            f: "0f0"
-        }, 
-        repeatKeys: ["a", "b"],
-        sort: "win"
-    });
+    // var maxMin = simpArr_Obj(a,{
+    //     key:true, 
+    //     max:["num"], 
+    //     min:["num"], 
+    //     sortKey:["num", "num1"],
+    //     direction: "asc",   //升和降序 Ascending Descending
+    //     filterObj: {
+    //         e: "test",
+    //         f: "0f0"
+    //     }, 
+    //     repeatKeys: ["a", "b"],
+    //     sort: "win"
+    // });
+    var maxMin = simpArr_Obj(d, {
+        keyVlaue: {
+            key: "title",
+            value: "time",
+            child: ["children", "child"]
+        }
+    })
 
     // const setArray = new SetArray();
     // const { spliceItem, spliceObjItem } = setArray;

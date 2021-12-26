@@ -29,6 +29,32 @@ let c = [
     {name:"bobi", win:1.1, lose:1.6, status: true}
 ]
 
+let d = [
+    // {
+    //     title: "dragon", num: 440, children: [{money: "25000", time: 12},{money: "25000", time: 13},{money: "25000", time: 6}]
+    // },
+    // {
+    //     title: "jack", num: 227, children: [{money: "35000", time: 48},{money: "25000", time: 24},{money: "25000", time: 36}]
+    // },
+    // {
+    //     title: "ben", num: 428, children: [{money: "30000", time: 31},{money: "30000", time: 22},{money: "25000", time: 100000}]
+    // },
+    {
+        title: "skip", num: 428, children: [
+            {base: "2019", angele: true, child: [
+                {time: 324}, {time: 100}, {time: 475}
+            ]}
+        ]
+    },
+    {
+        title: "duck", num: 338, children: [
+            {base: "2017", angele: true, child: [
+                {time: 3424}, {time: 70}, {time: 71}
+            ]}
+        ]
+    }
+]
+
 ## data_item_array
 
 ## data_item_number
@@ -70,6 +96,8 @@ max:["num"]: 得到数组里[num]对应key的最大值的那条item
 
 min:["num"]: 得到数组里[num]对应key的最小值的那条item
 
+keyVlaue:{key:"title", value:"time", child:["children", "child"]}  `key`对应最终返回的对象那个Key，`value`对应的是你所要取的值那个Key, `child`对应你所要遍历几层才能拿到value
+
 ```bash
 simpArr_Obj(a, {
     key:true, 
@@ -79,6 +107,11 @@ simpArr_Obj(a, {
     repeatKeys: ["a", "b","f"],
     max:["num"], 
     min:["num"] 
+})
+```
+```bash
+simpArr_Obj(d, {
+    keyVlaue: {key: "title", value: "time", child: ["children", "child"]}
 })
 ```
 
