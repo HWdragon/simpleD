@@ -3,14 +3,14 @@ import React from "react";
 import { simpArr_Obj, simpArr_Str, SetArray, SetBroad } from "../index";
 
 let a = [
-    {"a":"aaaa", "b": "bbbbbbb", "c": "cccccccccccc", "d": "dddddddddd", e: "test", f: "1ee", num: 12, num1: -45},
-    {"a":"wer", "b": "11313", "c": "s3fdd", "d": "041", e: "e", f: "f",num: 3, num1: -60},
-    {"a":"aa", "b": "bb", "c": "cc", "d": "dd", num: 100, num1: 2},
-    {"a":"aa1", "b1": "bb1", "c1": "cc1", "d1": "dd1", num: 100, num1: 21},
-    {"a":"a112", "b": "b11", "c": "c00", "d": "dkc",  e: "test", f: "test1",num: -100, num1: 1},
-    {"a":"aa", "b": "bb", "c": "000", "d00": "7800",  e: "e", f: "0f0",num: -10, num1: 10},
-    {"a":"aa", "b": "bb", "c": "asd", "d": "dd",  e: "eyt", f: "0f0",num: -17, num1: 11},
-    {"a":"f", "b": "u", "c": "c", "d": "k",  e: "!", f: "!!",num: 5, num1: 5}
+    {"a":"aaaa", "b": "bbbbbbb", "c": "cccccccccccc", "d": "dddddddddd", e: "test", f: "1ee", num: 12, num1: -45, "area": "A", "type" :1},
+    {"a":"wer", "b": "11313", "c": "s3fdd", "d": "041", e: "e", f: "f",num: 3, num1: -60, "area": "A", "type" :3},
+    {"a":"aa", "b": "bb", "c": "cc", "d": "dd", num: 100, num1: 2, "area": "B", "type" :2},
+    {"a":"aa1", "b1": "bb1", "c1": "cc1", "d1": "dd1", num: 100, num1: 21, "area": "C", "type" :1},
+    {"a":"a112", "b": "b11", "c": "c00", "d": "dkc",  e: "test", f: "test1",num: -100, num1: 1, "area": "A", "type" :2},
+    {"a":"aa", "b": "bb", "c": "000", "d00": "7800",  e: "e", f: "0f0",num: -10, num1: 10, "area": "D", "type" :2},
+    {"a":"aa", "b": "bb", "c": "asd", "d": "dd",  e: "eyt", f: "0f0",num: -17, num1: 11, "area": "D", "type" :2},
+    {"a":"f", "b": "u", "c": "c", "d": "k",  e: "!", f: "!!",num: 5, num1: 5, "area": "A"}
 ];
 let b = [2,"ad", undefined,null,"2", 2, 4, 5, "e12", 1, 3, 3, 2, "sdf", "12",null, undefined,"fuck", "fuckup", "sdf"]
 let b_1 = [100,"qwe", "as","sd",-911, 2, "12ds","sd","fd","ds","as","sd","dx1","100t","50g","128g","256g","100t","100","1001","1022"]
@@ -58,26 +58,26 @@ let d = [
 
 export const TestDemo = () => {
 
-    // var maxMin = simpArr_Obj(a,{
-    //     key:true, 
-    //     max:["num"], 
-    //     min:["num"], 
-    //     sortKey:["num", "num1"],
-    //     direction: "asc",   //升和降序 Ascending Descending
-    //     filterObj: {
-    //         e: "test",
-    //         f: "0f0"
-    //     }, 
-    //     repeatKeys: ["a", "b"],
-    //     sort: "win"
-    // });
-    var maxMin = simpArr_Obj(d, {
-        keyVlaue: {
-            key: "title",
-            value: "time",
-            child: ["children", "child"]
-        }
-    })
+    var maxMin = simpArr_Obj(a,{
+        key:true, 
+        max:["num"], 
+        min:["num"], 
+        sortKey:["num", "num1"],
+        direction: "asc",   //升和降序 Ascending Descending
+        filterObj: {
+            e: "test",
+            f: "0f0"
+        }, 
+        repeatKeys: ["a", "b"],
+        selectAmountKey: ["area", "type"]
+    });
+    // var maxMin = simpArr_Obj(d, {
+    //     keyVlaue: {
+    //         key: "title",
+    //         value: "time",
+    //         child: ["children", "child"]
+    //     }
+    // })
 
     // const setArray = new SetArray();
     // const { spliceItem, spliceObjItem } = setArray;

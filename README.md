@@ -98,6 +98,8 @@ min:["num"]: 得到数组里[num]对应key的最小值的那条item
 
 keyVlaue:{key:"title", value:"time", child:["children", "child"]}  `key`对应最终返回的对象那个Key，`value`对应的是你所要取的值那个Key, `child`对应你所要遍历几层才能拿到value
 
+selectAmountKey: [`key`, `key`]  `key`是数组单个元素里对应的`key` , 最终计算出数组元素以`key`的值为参考，得到[`value`]出现的次数 
+
 ```bash
 simpArr_Obj(a, {
     key:true, 

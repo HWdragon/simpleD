@@ -138,6 +138,21 @@ export const simpArr_Obj = (dataArr, paramsObj) => {
         })      
     }
 
+    // get {[key]: amount}
+    let hasSelectAmountKey = paramsObj && paramsObj["selectAmountKey"] ? paramsObj["selectAmountKey"] : null
+    let selectAmountResult = {};
+    if(hasSelectAmountKey && hasSelectAmountKey.length > 0) {
+        resultData.forEach(item => {
+            hasSelectAmountKey.forEach(ele => {
+                if(!selectAmountResult[item[ele]]) {
+                    selectAmountResult[item[ele]] = 1;
+                }else {
+                    selectAmountResult[item[ele]] = selectAmountResult[item[ele]] += 1;
+                }
+            })
+        })
+    }
+
     return {
         resultData: resultData,
         filterResult: filterResult,
@@ -145,7 +160,8 @@ export const simpArr_Obj = (dataArr, paramsObj) => {
         sortResult: sortResult,
         maxObj: maxObj,
         minObj: minObj,
-        keyVlaueObj: keyVlaueObj
+        keyVlaueObj: keyVlaueObj,
+        selectAmountResult: selectAmountResult
     }
 
 } 
