@@ -1,6 +1,6 @@
 
 import React from "react";
-import { simpArr_Obj, simpArr_Str, SetArray, SetBroad } from "../index";
+import { simpArr_Obj, simpArr_Str, SetArray, SetBroad, Preview } from "../index";
 
 let a = [
     {"a":"aaaa", "b": "bbbbbbb", "c": "cccccccccccc", "d": "dddddddddd", e: "test", f: "1ee", num: 12, num1: -45, "area": "A", "type" :1},
@@ -114,11 +114,21 @@ export const TestDemo = () => {
     //     console.log(a)
     // }, 3500)
 
-    return <div> 
-                <span>人生充满无奈 what fuck up!!!67</span> 
-                <div className="img1"></div>
-                <div className="img2"></div>
-                <div className="img3"></div>
-                <img src={require('../images/4.png')}/> 
-            </div>
+    return (
+            
+            <Preview>
+                <div id="_list"> 
+                    {/* <span>人生充满无奈 what fuck up!!!67</span> 
+                    <div className="img1"></div>
+                    <div className="img2"></div>
+                    <div className="img3"></div>
+                    <img src={require('../images/4.png')}/>  */}
+                    {/* <img className="_item" src="/img/1.png" /> */}
+                    {/* <img className="_item" src="/img/2.png" /> */}
+                    {/* <img className="_item" src="/img/3.png" /> */}
+
+                    <img className="_item" src={require('../images/1.png')} />
+                </div>
+            </Preview>
+    )
 }

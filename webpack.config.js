@@ -6,7 +6,7 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 
 module.exports = {
     // 入口起点
-    entry: "./src/main.js",
+    entry: "./src/index.js",
     // 输出
     output: {
         // 输出文件名
@@ -14,8 +14,8 @@ module.exports = {
         // 输出路径
         // __dirname 是nodejs的变量，代表当前文件的目录绝对路径
         path: resolve(__dirname, "build"),
-        // 该属性的目的是在url前加上一个 build/ 路径
-        // publicPath: "build/"   
+        // 该属性的目的是在url前加上一个 / 路径  || history会返回真实的路径，当你使用按需加载的时候，默认为相对路径则会出现404
+        // publicPath: "/"   
     },
     // loader的配置
     module: {
@@ -78,7 +78,7 @@ module.exports = {
     // 配置devServer
     devServer: {
         // contentBase: './src',   // 在打包过程中，我们找不到的资源，就到我们指定的目录下寻找 => 一般不必设置它
-        // historyApiFallback: true,   //是否跳转到index.html
+        historyApiFallback: true,   //是否跳转到index.html || 解决路由 history 404 问题 因为刷新的时候页面会404
         hot: true,   //热更新
         open: true, //编译完自动打开浏览器
         // compress: true   //开启gzip压缩  => 这个属性到底是影响了哪里的压缩？？？
@@ -96,5 +96,11 @@ module.exports = {
         new CleanWebpackPlugin()
     ],
     // 打包模式  development 指开发模式，代码未压缩   production 指产品模式，代码压缩
-    mode: "development"   // mode: "production"
+    mode: "development",   // mode: "production"
+    // 别名设置，可以设定路径别名
+    resolve: {
+        alias: {
+            '@/img': path.resolve(__dirname, "./src/images")
+        }
+    }
 }
