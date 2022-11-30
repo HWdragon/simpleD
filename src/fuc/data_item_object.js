@@ -2,7 +2,7 @@ import {
     keysJoin,
     sortBy1,
     sortBy2 
-} from "./utils";
+} from "../utils";
 
 export const simpArr_Obj = (dataArr, paramsObj) => {
     // copy source data
