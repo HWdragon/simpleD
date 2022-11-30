@@ -1,9 +1,10 @@
 {
   "name": "simple-d",
-  "version": "1.0.28",
+  "version": "1.0.29",
   "description": "data processing",
   "private": false,
   "main": "src/index.js",
+  "types": "src/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
