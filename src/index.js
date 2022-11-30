@@ -1,10 +1,10 @@
-import { simpArr_arr } from "./data_item_array";
-import { simpArr_Num } from "./data_item_number";
-import { simpArr_Obj } from "./data_item_object";
-import { simpArr_Str } from "./data_item_string";
-import { SetArray } from  "./set_array";
-import { SetBroad } from  "./set_broad";
-import Preview from "./components/Preview";
+import { simpArr_arr } from "./fuc/data_item_array";
+import { simpArr_Num } from "./fuc/data_item_number";
+import { simpArr_Obj } from "./fuc/data_item_object";
+import { simpArr_Str } from "./fuc/data_item_string";
+import { SetArray } from  "./fuc/set_array";
+import { SetBroad } from  "./fuc/set_broad";
+import Preview from "./components/Preview/preview";
 
 export {
     simpArr_arr,
@@ -15,4 +15,3 @@ export {
     SetBroad,
     Preview
 }
-
