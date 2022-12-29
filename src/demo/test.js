@@ -1,6 +1,6 @@
 
 import React from "react";
-import { simpArr_Obj, simpArr_Str, SetArray, SetBroad, Preview } from "../index";
+import { simpArr_Obj, simpArr_Str, SetArray, SetBroad, Preview, getParameters, getParameterURL } from "../index";
 
 let a = [
     {"a":"aaaa", "b": "bbbbbbb", "c": "cccccccccccc", "d": "dddddddddd", e: "test", f: "1ee", num: 12, num1: -45, "area": "A", "type" :1},
@@ -10,7 +10,10 @@ let a = [
     {"a":"a112", "b": "b11", "c": "c00", "d": "dkc",  e: "test", f: "test1",num: -100, num1: 1, "area": "A", "type" :2},
     {"a":"aa", "b": "bb", "c": "000", "d00": "7800",  e: "e", f: "0f0",num: -10, num1: 10, "area": "D", "type" :2},
     {"a":"aa", "b": "bb", "c": "asd", "d": "dd",  e: "eyt", f: "0f0",num: -17, num1: 11, "area": "D", "type" :2},
-    {"a":"f", "b": "u", "c": "c", "d": "k",  e: "!", f: "!!",num: 5, num1: 5, "area": "A"}
+    {"a":"f", "b": "u", "c": "c", "d": "k",  e: "!", f: "!!",num: 5, num1: 5, "area": "A"},
+    {"a":1, "b":2},
+    {"a":1, "b":2, "c":3},
+    {"a":1, "b":2}
 ];
 let b = [2,"ad", undefined,null,"2", 2, 4, 5, "e12", 1, 3, 3, 2, "sdf", "12",null, undefined,"fuck", "fuckup", "sdf"]
 let b_1 = [100,"qwe", "as","sd",-911, 2, "12ds","sd","fd","ds","as","sd","dx1","100t","50g","128g","256g","100t","100","1001","1022"]
@@ -68,7 +71,8 @@ export const TestDemo = () => {
             e: "test",
             f: "0f0"
         }, 
-        repeatKeys: ["a", "b"],
+        // repeatKeys: ["a", "b"],
+        repeat: true,
         selectAmountKey: ["area", "type"]
     });
     // var maxMin = simpArr_Obj(d, {
@@ -114,20 +118,27 @@ export const TestDemo = () => {
     //     console.log(a)
     // }, 3500)
 
+    const copyText = async (text) => await navigator.clipboard.writeText(text);
+
+    const copy = () => {
+        console.log("1111")
+        copyText("水电费ewer ")
+    }
     return (
             
             <Preview>
                 <div id="_list"> 
-                    {/* <span>人生充满无奈 what fuck up!!!67</span> 
+                    <span>人生充满无奈 what fuck up!!!67</span> 
                     <div className="img1"></div>
                     <div className="img2"></div>
                     <div className="img3"></div>
-                    <img src={require('../images/4.png')}/>  */}
+                    <img src={require('../images/4.png')}/> 
                     {/* <img className="_item" src="/img/1.png" /> */}
                     {/* <img className="_item" src="/img/2.png" /> */}
                     {/* <img className="_item" src="/img/3.png" /> */}
 
                     <img className="_item" src={require('../images/1.png')} />
+                    <span onClick={copy}>点击</span>   
                 </div>
             </Preview>
     )

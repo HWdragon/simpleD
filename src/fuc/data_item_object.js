@@ -19,13 +19,14 @@ export const simpArr_Obj = (dataArr, paramsObj) => {
     // add key = index
     let hasKey = paramsObj && paramsObj["key"] ? paramsObj["key"] : false;
     if(hasKey && isObjItem) {
-        resultData = resultData.map((data, index) => {
-            return {...data, key: index}
-        })
+        // resultData = resultData.map((data, index) => {
+        //     return {...data, key: index}
+        // })
     }
 
     // filter data 
-    // result : { filterKey1: [{……}，{……}] }
+    // filterObj: { e: "test", f: "0f0"}, 
+    // data里的单条obj里如果有 e: "test" 的话，则返回该obj  result : { e: [{……}, …… ……] }  
     let hasFilterObj = paramsObj && paramsObj["filterObj"] ? paramsObj["filterObj"] : []
     let filterObjKeys = Object.keys(hasFilterObj);
     let filterResult = {
@@ -57,7 +58,7 @@ export const simpArr_Obj = (dataArr, paramsObj) => {
         sortResult = resultData.sort(sortBy2(hasSort[0], hasSort[1], desc))
     }
     
-    // no-repeat 
+    // no-repeat repeatKeys=[key1,key2]：repeatKeys为数组，key为item里的[key],以拿到对应key[value]的值, 拼接所选中的[value]值，来筛选
     let hasRepeatKeys = paramsObj && paramsObj["repeatKeys"] ? paramsObj["repeatKeys"] : null
     let repeatKeysHash = {}, repeatKeysResult = {res: [], repeat: []};
     if(hasRepeatKeys) {
@@ -71,6 +72,13 @@ export const simpArr_Obj = (dataArr, paramsObj) => {
                 repeatKeysResult["repeat"].push(item)
             }
         })
+    }
+
+    // item为obj对象的去重
+    let hasRepeat = paramsObj && paramsObj["repeat"] ? paramsObj["repeat"] : null
+    let newSetRepeat = [];
+    if(hasRepeat) {
+        newSetRepeat = [...new Set(resultData.map(data => JSON.stringify(data)))].map(item => JSON.parse(item))
     }
 
     // get max min
@@ -157,6 +165,7 @@ export const simpArr_Obj = (dataArr, paramsObj) => {
         resultData: resultData,
         filterResult: filterResult,
         repeatKeysResult: repeatKeysResult,
+        newSetRepeat: newSetRepeat,
         sortResult: sortResult,
         maxObj: maxObj,
         minObj: minObj,

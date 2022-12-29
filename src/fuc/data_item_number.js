@@ -11,7 +11,7 @@ export const simpArr_Num = (dataArr, paramsObj) => {
     // [["aa","aa"],["bb"], …… ……]
     let isArraryItem = Object.prototype.toString.call(dataArr[0]) == "[object Array]";
 
-    // get max || min    
+    // get max || min  得到最大最小值    {getMax: true, getMin: true}
     // only element is a number or string number  || [1 ,'1']
     let hasMax = paramsObj && paramsObj["getMax"] ? paramsObj["getMax"] : null
     let hasMin = paramsObj && paramsObj["getMin"] ? paramsObj["getMin"] : null

@@ -11,7 +11,7 @@ export const simpArr_Str = (dataArr, paramsObj) => {
     // [["aa","aa"],["bb"], …… ……]
     let isArraryItem = Object.prototype.toString.call(dataArr[0]) == "[object Array]";
 
-    // array no-repeat
+    // array no-repeat  【去重】 repeat:true
     // 1.hash no-repeat --- 3ms
     // 2.jquery $.each $.inArrary no-repeat --- 115ms
     // 3.indexOf no-repeat --- 71ms
@@ -29,6 +29,8 @@ export const simpArr_Str = (dataArr, paramsObj) => {
     }
 
     // number of times to get the same element
+    // 得到当前item的个数：{a:2个, b:3个，…………}  
+    // same: true
     let hasSame = paramsObj && paramsObj["same"] ? paramsObj["same"] : null
     let sameObj = {};
     if(hasSame && (isStringItem || isNumberItem)) {

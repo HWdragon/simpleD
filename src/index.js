@@ -5,6 +5,7 @@ import { simpArr_Str } from "./fuc/data_item_string";
 import { SetArray } from  "./fuc/set_array";
 import { SetBroad } from  "./fuc/set_broad";
 import Preview from "./components/Preview/preview";
+import { getParameters, getParameterURL } from "./fuc/utils";
 
 export {
     simpArr_arr,
@@ -13,5 +14,6 @@ export {
     simpArr_Str,
     SetArray,
     SetBroad,
-    Preview
+    Preview,
+    getParameters, getParameterURL
 }
